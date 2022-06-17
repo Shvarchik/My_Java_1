@@ -9,7 +9,6 @@ public class task2 {
         double n = console.nextDouble();
         console.close();
         double triangularNumber = (n/2)*(n+1);
-        System.out.printf("%s%.0f", "Тn = ",triangularNumber);
-
+        System.out.printf("Тn = %.0f ",triangularNumber);
     }
 }
