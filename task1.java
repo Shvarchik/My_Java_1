@@ -15,9 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class task1 {
-    // public static  double pow (int value,  int powvalue) {
-    //     return (double) Math.pow(value, powvalue);
-    // }
     public static void main(String [] args) throws Exception {
         
         BufferedReader br = new BufferedReader(new FileReader("input.txt"));
@@ -26,16 +23,14 @@ public class task1 {
         a = b = 0;
       
         while ((str = br.readLine()) != null) {
-            System.out.printf("%s\n", str);
+            System.out.println (str);   
             char c = str.charAt(0);
             if (c == 'a') {
                 String substr1 = str.substring(2);
-                System.out.println(substr1);
                 a = Integer.parseInt(substr1);
             } 
             else {
                 String substr1 = str.substring(2);
-                System.out.println(substr1);
                 b = Integer.parseInt(substr1);
             }
         }
