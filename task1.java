@@ -26,12 +26,10 @@ public class task1 {
             System.out.println (str);   
             char c = str.charAt(0);
             if (c == 'a') {
-                String substr1 = str.substring(2);
-                a = Integer.parseInt(substr1);
+                a = Integer.parseInt(str.substring(2));
             } 
             else {
-                String substr1 = str.substring(2);
-                b = Integer.parseInt(substr1);
+                b = Integer.parseInt(str.substring(2));
             }
         }
            
