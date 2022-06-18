@@ -26,7 +26,7 @@ public class task1 {
             System.out.println (str);   
             char c = str.charAt(0);
             if (c == 'a') {
-                a = Integer.parseInt(str.substring(2));
+                a = Integer.parseInt(str.substring(2)); // число начинается со 2 символа строки
             } 
             else {
                 b = Integer.parseInt(str.substring(2));
