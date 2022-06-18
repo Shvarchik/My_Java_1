@@ -27,8 +27,7 @@ public class program_lec1_task1 {
         int[] arrOfCoefficients = new int[maxDegree+1];   // заполнение массива коэффициентов случайными числами
         Random rand = new Random();
         for (int i = 0; i < arrOfCoefficients.length; i++) {
-            int n = rand.nextInt(100);
-            arrOfCoefficients[i] = n;
+            arrOfCoefficients[i] = rand.nextInt(100); 
         }
         for (int i = 0; i < arrOfCoefficients.length; i++) {   // печать массива коэффициентов
             System.out.printf("%d ", arrOfCoefficients[i]);
