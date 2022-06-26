@@ -22,17 +22,17 @@ public class sortMergeArray {
         return mergeArray (arrayLeft, arrayRight);                          // вызов метода слияния отсортированных массивов
     }
 
-    static int[] mergeArray(int[] B, int[] C) {                            // слияние двух отсортированных массивов
-        int[] A = new int[B.length + C.length];
+    static int[] mergeArray(int[] B, int[] C) {                            // слияние двух отсортированных массивов B и C
+        int[] A = new int[B.length + C.length];                            // в массив А 
         int i = 0, j = 0, k = 0;
         while (i < B.length && j < C.length) {
             A[k++] = B[i] < C[j] ? B[i++] : C[j++];
         }
         if (i < B.length) {
-            System.arraycopy(B, i, A, k, B.length - i);
-        } else {
-            if (j < C.length) {
-                System.arraycopy(C, j, A, k, C.length - j);
+            System.arraycopy(B, i, A, k, B.length - i);                     // если остались элементы в массиве B, копируем их в А
+        } else {                                                              // иначе
+            if (j < C.length) {                                               // если остались элементы в массиве C, копируем их в А
+                System.arraycopy(C, j, A, k, C.length - j);                 
             }
         }  
         return A;
@@ -51,7 +51,7 @@ public class sortMergeArray {
         return array;
     }
 
-    static void printArray (int [] array) {
+    static void printArray (int [] array) {             // вывод массива на печать
         
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");

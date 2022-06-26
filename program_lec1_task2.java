@@ -64,7 +64,6 @@ public class program_lec1_task2 {
             System.out.println(polinom);
             //polinom = polinom.replaceAll(" ","");    // убираем пробелы
             char [] polinomArr = polinom.toCharArray();                 // превращаем строку полинома в массив символов
-            //int [] coefficients = new int [10];                         
             int i = 0;
             
             while (i < polinomArr.length && polinomArr[i] != '=') {    // парсим в цикле член полинома
@@ -113,7 +112,7 @@ public class program_lec1_task2 {
             if (newMember != ""){
                 if (newMember.charAt(0) != '-' ){
                     polinomBuilder.append("+").append(newMember);
-                } else  polinomBuilder.append(newMember);   
+                }else  polinomBuilder.append(newMember);   
             }
         }
         polinomBuilder.append(" = 0");                // добавляем "= 0"
