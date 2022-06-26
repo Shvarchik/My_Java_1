@@ -30,7 +30,7 @@ public class heapsort {
             int temp = array[max];                                  // меняем его с корневым элементом местами
             array[max] = array[root];
             array[root] = temp;
-            heapsift(array, max, size);                             // вызов метод перегруппировки затронутого поддерева
+            heapsift(array, size, max);                             // вызов метод перегруппировки затронутого поддерева
         }
     }
 
