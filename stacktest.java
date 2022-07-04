@@ -27,16 +27,16 @@ public class stacktest {
                     st.addElement(bee[i]);
                     break;
                 case ')' :
-                    if (st.pop() != '(') return false ;
+                    if (st.empty() || st.pop() != '(') return false ;
                     break;
                 case ']' :
-                    if (st.pop() != '[') return false ;
+                    if (st.empty() || st.pop() != '[') return false ;
                     break;
                 case '}' :
-                    if (st.pop() != '{') return false ;
+                    if (st.empty() || st.pop() != '{') return false ;
                     break;
                 case '>' :
-                    if (st.pop() != '<') return false ;
+                    if (st.empty() || st.pop() != '<') return false ;
                     break;
             }
         }
@@ -45,7 +45,7 @@ public class stacktest {
     }
 
     public static void main(String[] args) {
-        var exp = "a+(d*3)";
+        var exp = "{a+]}{(d*3)}";
         char [] bee = exp.toCharArray();
         Stack<Character> st = new Stack<>();
         if (check (st,bee)){
