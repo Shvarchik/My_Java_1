@@ -7,6 +7,8 @@ import java.util.Comparator;
 
 public class knightMove {
 
+    public static int countOfCalls;          // переменная для подсчета количества рекурсивных вызовов
+
     // метод поиска возможных ходов из точки (x,y)
 
     static ArrayList<ArrayList<Integer>> getPossibleMoves (int[][] chess, int n, int x, int y) {   
@@ -69,6 +71,7 @@ public class knightMove {
 
     static boolean setKnight (int [][] chess, int n, int x, int y, int count){
 
+        countOfCalls++;
         count++;                                                    // ставим следующий ход
         chess[x][y] = count;
         if (count == n*n) return true;
@@ -91,17 +94,14 @@ public class knightMove {
     public static void main(String[] args) {
         int n = 8;
         int[] chessBoard[] = new int[n][n];
-        int x = 0;
-        int y = 0;
+        int x = 2;
+        int y = 2;
         int count = 0;
+        countOfCalls = 0;
         if (setKnight (chessBoard, n, x, y, count)){
             printBoard(chessBoard);
         }
         else System.out.println ("решений нет");
+        System.out.println(countOfCalls);
     }
 }
-
-
-
-
-
