@@ -123,7 +123,7 @@ public class infixToPostfix {
             if (operators.containsKey(Character.toString(arr[i]))) {        // Если символ является операцией O, тогда:
                 if (arr[i] == '-' && (i == 0 || arr[i - 1] == '(')) {       // если это унарный минус, то помещаем в стек ~
                     st.addElement("~");
-                } else { // если это бинарная операция O, то
+                } else {                                                    // если это бинарная операция O, то
                     while (!(st.empty()) &&
                             (functions.contains(st.peek()) ||               // пока на вершине стека префиксная функция ИЛИ
                                     (operators.containsKey(st.peek()) &&    // (операция И ее приоритет >= приоритету O
