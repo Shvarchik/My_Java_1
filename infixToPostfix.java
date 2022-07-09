@@ -42,7 +42,6 @@ public class infixToPostfix {
             else return false;
     }
 
-
     static int[] parseNumber(char[] array, int index) {                     // парсинг числа из идущих подряд цифр в массиве символов,
                                                                             // возвращает массив, где 0-й элемент - индекс последней цифры, 
         StringBuilder sb = new StringBuilder();                             // 1-й элемент - само число
@@ -79,12 +78,11 @@ public class infixToPostfix {
         operators.put("*", 1);
         operators.put("/", 1);
         operators.put("^", 2);
-
         List<String> functions = List.of("Sin", "Cos", "Tg");
         List<String> constants = List.of("Pi");
-
         ArrayList <String> result = new ArrayList <String>();
         Stack <String> st = new Stack<>();
+
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == '(')                                              // Если символ является открывающей скобкой, помещаем его в стек.
                 st.addElement(Character.toString(arr[i]));
@@ -112,10 +110,11 @@ public class infixToPostfix {
             }
                                                                               
             if (operators.containsKey(Character.toString(arr[i]))) {        // Если символ является бинарной операцией O, тогда:  пока на вершине стека префиксная функция ИЛИ
-                while ( !(st.empty()) &&                                                                                                // операция приоритетнее или такого же уровня приоритета как O                 
-                        (functions.contains(st.peek()) ||                                                                               // выталкиваем верхний элемент стека в выходную строку;
-                        (operators.containsKey(st.peek()) && operators.get(st.peek()) >= operators.get(Character.toString(arr[i]))))){
-                    result.add(st.pop());
+                while ( !(st.empty()) &&                                                     
+                        (functions.contains(st.peek()) ||                   // пока на вершине стека префиксная функция ИЛИ
+                        (operators.containsKey(st.peek()) &&                // операция приоритетнее или такого же уровня приоритета как O
+                         operators.get(st.peek()) >= operators.get(Character.toString(arr[i]))))){
+                    result.add(st.pop());                                   // выталкиваем верхний элемент стека в выходную строку;
                 }
                 st.addElement(Character.toString(arr[i]));   // помещаем операцию O в стек.
             }
