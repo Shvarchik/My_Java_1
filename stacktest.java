@@ -9,20 +9,21 @@
 import java.util.Stack;
 public class stacktest {
        
-    static boolean check (Stack<Character> st, char[] bee){
-        for (int i = 0; i<bee.length; i++){
-            switch (bee[i]){
+    static boolean check (char[] arr){
+        Stack<Character> st = new Stack<>();
+        for (int i = 0; i<arr.length; i++){
+            switch (arr[i]){
                 case '(' :
-                    st.addElement(bee[i]);
+                    st.addElement(arr[i]);
                     break;
                 case '[' :
-                    st.addElement(bee[i]);
+                    st.addElement(arr[i]);
                     break;
                 case '{' :
-                    st.addElement(bee[i]);
+                    st.addElement(arr[i]);
                     break;
                 case '<' :
-                    st.addElement(bee[i]);
+                    st.addElement(arr[i]);
                     break;
                 case ')' :
                     if (st.empty() || st.pop() != '(') return false ;
@@ -44,9 +45,9 @@ public class stacktest {
 
     public static void main(String[] args) {
         var exp = "{a+]}{(d*3)}";
-        char [] bee = exp.toCharArray();
-        Stack<Character> st = new Stack<>();
-        if (check (st,bee)){
+        char [] expArray = exp.toCharArray();
+        
+        if (check (expArray)){
             System.out.println("истина");
         } else 
             System.out.println("ложь");
