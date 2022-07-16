@@ -9,7 +9,6 @@ public class waveAlgorytm {
 
         int n = map.length;
         map[x][y] = 1;                                                          // ставим 1 в отправную точку
-        int count;
         Deque<int[]> dq = new ArrayDeque<>();                                   // объявляем очередь для пар координат
         dq.addFirst(new int[] { x, y });                                        // координаты отправной точки добавляем в начало очереди
         int[] cell = new int[2];                                                // объявление массива для координат
@@ -17,13 +16,12 @@ public class waveAlgorytm {
             cell = dq.pollFirst();                                              // извлекаем пару координат (исходная позиция) из головы очереди
             int row = cell[0];
             int col = cell[1];
-            count = map[row][col] + 1;                                           // счетчик на 1 больше, чем значение в исходной позиции
-            for (int i = -1; i <= 1; i++) {                                      // во все соседние позиции
+            for (int i = -1; i <= 1; i++) {                                      // во все соседние пустые (==0) позиции
                 for (int j = -1; j <= 1; j++) {
                     x = row + i;
                     y = col + j;
                     if (x >= 0 && x < n && y >= 0 && y < map[x].length && map[x][y] == 0) {
-                        map[x][y] = count;                                       // ставим значение счетчика
+                        map[x][y] = map[row][col]+1;                             // ставим значение на 1 больше, чемв исходной
                         dq.addLast(new int[] { x, y });                          // и добавляем их координаты в хвост очереди
                     }
                 }
