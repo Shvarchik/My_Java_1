@@ -65,16 +65,19 @@ public class waveAlgorytm {
 
     public static void main(String[] args) {
         int[][] map = new int[10][10];
-        int startX = 1; // начальная точка
+        int startX = 1;                                             // начальная точка
         int startY = 6;
-        int finishX = 5; // конечная точка
+        // for (int i = 0; i<map[4].length;i++) map[4][i] = -1;     // непроходимое препятствие
+        int finishX = 5;                                            // конечная точка
         int finishY = 7;
         if (wave(map, startX, startY, finishX, finishY)) {
             printMap(map);
             System.out.println("Варианты пути:");
             String path = "";
             restorePath(map, finishX, finishY, path);
-        } else
+        } else{
             System.out.println("нет решения");
+            printMap(map);
+        }    
     }
 }
