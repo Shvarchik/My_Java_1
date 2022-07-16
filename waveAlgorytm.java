@@ -35,13 +35,13 @@ public class waveAlgorytm {
 
     static void restorePath(int[][] map, int a, int b, String path) {           // восстановление пути, печать всех вариантов кратчайшего пути
                                                                                 // (можно было бы не печатать, а заполнять ArrayList <String>
-        path = path + "(" + a + "," + b + ")";
+        path = "(" + a + "," + b + ")" + path;
         if (map[a][b] == 1) {
             System.out.print(++count + ". ");
             System.out.println(path);
             return;
         } else
-            path = path + "<-";
+            path = "->" + path;
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 int x = a + i;
