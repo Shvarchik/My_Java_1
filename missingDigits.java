@@ -174,6 +174,24 @@ public class missingDigits {
                 t1 = t[1];
                 sum = t[2];
                 flag = f;
+                if (t0 != '?' && t1 != '?' && sum =='?'){           // если известны оба слагаемых, а сумма неизвестна
+                    int summ = Character.getNumericValue(t0) + Character.getNumericValue(t1) + flag;
+                    if (summ < 10) {                                // если сумма меньше 10, флаг переноса 0 
+                        sum = Character.forDigit(summ, RADIX);
+                        flag = 0;
+                    } else {                                        // если сумма >= 10, берем последнюю цифру, флаг 1
+                        summ = summ % 10;
+                        flag = 1;
+                        sum = Character.forDigit(summ, RADIX);
+                    }
+                    if (solve(expArray, t0, t1, sum, tStr1, tStr2, sumStr, flag, place))
+                        return true;    
+                }                
+
+                t0 = t[0];
+                t1 = t[1];
+                sum = t[2];
+                flag = f;
                 if (t0 != '?' && t1 != '?' && sum !='?'){               // если известны оба слагаемых и сумма
                     if (Character.getNumericValue(t0) + Character.getNumericValue(t1) + flag == Character.getNumericValue(sum)){
                         flag = 0;  
@@ -193,7 +211,7 @@ public class missingDigits {
         return false;
     }
     public static void main(String[] args) {
-        String exp = "2??+?4?=35?";                // "2?4+9?=35?";   "9? + ?5 = 69";    "2??+14?=35?";   "2?4+9?=35?";  "?4 + 5? = 93";
+        String exp = "2?6+??2=35?";                // "2?4+9?=35?";   "9? + ?5 = 69";    "2??+14?=35?";   "2?4+9?=35?";  "?4 + 5? = 93";
         String[] expArray = new String[3];
         expArray = parseNums(exp, expArray);
         for (int i = 0; i < expArray.length; i++)
